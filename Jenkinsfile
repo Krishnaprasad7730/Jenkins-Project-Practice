@@ -6,6 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building branch"
+                sh "mvn -v"
                 sh 'docker build -t test-app .'
             }
         }
