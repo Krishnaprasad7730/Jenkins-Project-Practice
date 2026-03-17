@@ -27,6 +27,14 @@ pipeline {
                 sh 'echo Deploying in prod'
             }
         }
+        post{
+            success {
+                echo "Multibranch pipeline is successful"
+            }
+            failure {
+                echo "Multibranch pipeline is a failure"
+            }
+        }
 
     }
 }
