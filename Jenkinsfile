@@ -7,6 +7,7 @@ pipeline {
             steps {
                 echo "Building branch"
                 sh 'docker build -t test-app .'
+                sh "docker --version"
             }
         }
 
