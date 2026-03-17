@@ -21,10 +21,10 @@ pipeline {
 
         stage('Deploy') {
             when {
-                branch 'dev'
+                branch 'prod'
             }
             steps {
-                sh 'echo Deploying in dev'
+                sh 'echo Deploying in prod'
             }
         }
         post{
