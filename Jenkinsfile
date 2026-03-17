@@ -5,7 +5,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'echo Building branch'
+                echo "Building branch"
                 sh 'docker build -t test-app .'
             }
         }
@@ -15,7 +15,7 @@ pipeline {
                 branch 'dev'
             }
             steps {
-                sh 'echo Running tests in dev'
+                echo "Running tests in dev"
             }
         }
 
@@ -24,17 +24,18 @@ pipeline {
                 branch 'prod'
             }
             steps {
-                sh 'echo Deploying in prod'
-            }
-        }
-        post{
-            success {
-                echo "Multibranch pipeline is successful"
-            }
-            failure {
-                echo "Multibranch pipeline is a failure"
+                echo "Deploying in prod"
             }
         }
 
+    }
+
+    post {
+        success {
+            echo "Multibranch pipeline is successful"
+        }
+        failure {
+            echo "Multibranch pipeline is failure"
+        }
     }
 }
